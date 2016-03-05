@@ -14,7 +14,7 @@ output:
 3. Do some preprocessing.
 
 
-####1. Defining some *name constants* to be used in subsequent code chunks.
+### 1. Defining some *name constants* to be used in subsequent code chunks.
 ```{r}
 # define constants for the input data file (for zip- and csv-version):
 datafilebasename <- "activity"
@@ -22,7 +22,7 @@ datafilezip <- paste("./", datafilebasename, ".zip", sep="")
 datafilecsv <- paste("./", datafilebasename, ".csv", sep="")
 ```
 
-####2. Unzipping (if needed) and reading in the dataframe from csv-file.
+### 2. Unzipping (if needed) and reading in the dataframe from csv-file.
 File `r datafilezip` is assumed to exist in current directory.  
 If file `r datafilecsv` does not yet exist it will be extracted form the zip-archive. 
 After that *read.csv* is used to load `r datafilecsv` into a variable *df*  to hold the dataframe. 
@@ -36,7 +36,7 @@ if(!file.exists(datafilecsv)){
 df <- read.csv ("./activity.csv")
 ```
 
-####3. Do some preprocessing.
+### 3. Do some preprocessing.
 Finally a little preprocessing takes place:  
 - Column *`r names(df)[2]`* will be converted into a real *data* datatype using *as.Date*.
 
@@ -90,6 +90,7 @@ g <- ggplot(df.5min.mean, aes(vector.5min, steps.mean.per5min)) +
         labs(x="Daily 5-minute interval", y="Average number of steps") 
 print(g)
 ```
+
 Compute the (average) maximum number of steps based on all 5 minute intervals:
 ```{r}
 max.5min.mean <- max(steps.mean.per5min)
